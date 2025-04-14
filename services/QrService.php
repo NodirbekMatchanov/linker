@@ -11,9 +11,15 @@ class QrService
 {
     public function generate(string $data, string $filename = null): string
     {
+        $saveDir = Yii::getAlias('@webroot/uploads/qr');
         $filename = $filename ?? md5($data . microtime()) . '.png';
         $savePath = Yii::getAlias('@webroot/uploads/qr/' . $filename);
         $webPath = Yii::getAlias('@web/uploads/qr/' . $filename);
+
+        // Проверка и создание директории
+        if (!is_dir($saveDir)) {
+            mkdir($saveDir, 0755, true); // 0755 — права, true — рекурсивное создание
+        }
 
         $result = Builder::create()
             ->writer(new PngWriter())
