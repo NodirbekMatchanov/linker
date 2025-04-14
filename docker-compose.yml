@@ -5,9 +5,11 @@ services:
     image: nginx:alpine
     ports:
     - "80:80"
+    - "443:443"
     volumes:
     - ./:/var/www/html
     - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    - /etc/letsencrypt:/etc/letsencrypt:ro  # монтируем сертификаты
     depends_on:
     - php
 
