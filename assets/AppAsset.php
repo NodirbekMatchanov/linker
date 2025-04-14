@@ -20,10 +20,19 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        'tmpl/assets/css/fontawesome.css',
+        'tmpl/assets/css/templatemo-space-dynamic.css',
+        'tmpl/assets/css/animated.css',
+        'tmpl/assets/css/owl.css',
         'css/site.css',
         'css/loader.css',
+
     ];
     public $js = [
+        'tmpl/assets/js/owl-carousel.js',           // Owl carousel
+        'tmpl/assets/js/animation.js',              // Анимации
+        'tmpl/assets/js/imagesloaded.js',           // ImagesLoaded
+        'tmpl/assets/js/templatemo-custom.js',      // Твой кастомный JS
     ];
     public $depends = [
         'yii\web\YiiAsset',

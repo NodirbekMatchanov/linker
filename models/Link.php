@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Rare
- * Date: 09.04.2025
- * Time: 8:21
- */
+
 
 namespace app\models;
 
@@ -23,7 +18,8 @@ class Link extends ActiveRecord
     {
         return [
             [['original_url', 'short_url', 'qr_code'], 'required'],
-            [['clicks'], 'integer'],
+            [['clicks','scans'], 'integer'],
+            [['expires_at'], 'safe'],
             [['original_url', 'short_url', 'qr_code'], 'string', 'max' => 255],
         ];
     }
@@ -34,4 +30,6 @@ class Link extends ActiveRecord
         // Генерация короткой ссылки (можно использовать более сложные алгоритмы или сторонние сервисы)
         return substr(md5($url . time()), 0, 6);
     }
+
+    
 }

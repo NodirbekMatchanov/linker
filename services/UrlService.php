@@ -9,15 +9,15 @@ class UrlService
     public function createShortUrl($url)
     {
         // Проверка доступности URL
-        if (!$this->checkUrlAvailability($url)) {
-            return ['success' => false, 'message' => 'URL недоступен'];
-        }
+//        if (!$this->checkUrlAvailability($url)) {
+//            return ['success' => false, 'message' => 'URL недоступен'];
+//        }
 
         $short = substr(md5($url . microtime()), 0, 6);
-        $shortUrl = Url::to(['/go/'. $short], true);
+        $shortUrl = Url::to(['/'. $short], true);
         // Генерация QR (условная, ты можешь вставить генератор)
         $qrService = new QrService();
-        $qr = $qrService->generate($shortUrl);
+        $qr = $qrService->generate($short);
 
         $link = new Link([
             'original_url' => $url,

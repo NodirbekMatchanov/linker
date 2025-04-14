@@ -6,6 +6,7 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic',
     'name' => 'Конвертер',
+    'language' => 'ru',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
@@ -42,16 +43,36 @@ $config = [
                 ],
             ],
         ],
+
+
         'db' => $db,
+
+        'i18n' => [
+            'translations' => [
+                'meta*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'fileMap' => [
+                        'meta' => 'meta.php',
+                    ],
+                ],
+            ],
+        ],
 
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'go/<code:\w+>' => 'redirect/go',
+                '<code:\w+>' => 'redirect/go',
+
             ],
         ],
 
+    ],
+    'modules' => [
+        'api' => [
+            'class' => 'app\modules\api\v1\Module',
+        ],
     ],
     'params' => $params,
 ];
@@ -62,14 +83,14 @@ if (YII_ENV_DEV) {
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+        'allowedIPs' => ['127.0.0.1', '::1'],
     ];
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+        'allowedIPs' => ['*'],
     ];
 }
 

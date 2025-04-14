@@ -62,6 +62,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $model = new UrlForm();
+        $modelContact = new ContactForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             // Логика для генерации QR-кода и короткой ссылки
@@ -78,6 +79,7 @@ class SiteController extends Controller
 
         return $this->render('index', [
             'model' => $model,
+            'modelContact' => $modelContact,
         ]);
     }
 
@@ -87,7 +89,7 @@ class SiteController extends Controller
         Yii::$app->response->format = Response::FORMAT_JSON;
         $model = new UrlForm();
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+        if ($model->load(Yii::$app->request->post())) {
             $service = new UrlService();
             $result = $service->createShortUrl($model->url);
 
