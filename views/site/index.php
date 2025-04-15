@@ -276,8 +276,13 @@ $script = <<< JS
 
     $('#url-form').on('beforeSubmit', function(e) {
         var form = $(this);
+        e.preventDefault(); // предотвращаем стандартную отправку
+       
         
-        $('.loader').removeClass('hide');
+        if (!form.find('.has-error').length) {
+          $('.loader').removeClass('hide');
+        }
+    
         $.ajax({
             url: form.attr('action'),
             type: 'POST',
