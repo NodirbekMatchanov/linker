@@ -1,2 +1,7 @@
 User-agent: *
-Disallow:
+Disallow: /admin/
+Disallow: /backend/
+
+Allow: /
+
+Sitemap: https://q-lk.uz/sitemap.xml
