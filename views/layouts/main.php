@@ -113,6 +113,15 @@ $this->registerMetaTag(['property' => 'og:url', 'content' => Url::to('', true)])
 </footer>
 
 <?php $this->endBody() ?>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E5K58KGP6B"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E5K58KGP6B');
+</script>
 </body>
 </html>
 <?php $this->endPage() ?>
