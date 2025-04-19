@@ -29,7 +29,7 @@
       boxClass: 'wow',
       animateClass: 'animated',
       offset: 0,
-      mobile: true
+      mobile: false
     };
 
     function WOW(options) {
@@ -187,7 +187,7 @@
 wow = new WOW(
   {
     animateClass: 'animated',
-    offset: 50
+    offset: 50,
   }
 );
 wow.init();
