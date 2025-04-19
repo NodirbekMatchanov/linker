@@ -293,7 +293,7 @@ $script = <<< JS
                 if (response.status == 'success') {
                     $('#result').html('<div class="link-result-container"><div class="link-info"><h3>Your short Link:</h3><a href="' + response.shortUrl +'" target="_blank" id="shortLink">' + response.shortUrl+'</a>'
                     + '<button class="copy-btn" data-link="'+ response.shortUrl +'"><i class="fa fa-copy"></i></button>'
-    + '</div><div class="qr-code"><h3>QR-code:</h3><img src="'+ response.qrCode + '" alt="QR code"><a href="'+response.qrCode+'" download=1>Download PNG</a></div></div>');
+    + '</div><div class="qr-code"><h3>QR-code:</h3><img src="'+ response.qrCode + '" alt="QR code"><a href="'+response.qrCode+'" style="display:block" download=1>Download PNG</a></div></div>');
                 } else {
                     $('#result').html('<div class="alert alert-danger">Ошибка: ' + response.message + '</div>');
                 }
