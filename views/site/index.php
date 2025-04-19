@@ -29,7 +29,7 @@ $this->title = 'QuickLinker';
                                     'id' => 'url-form',
                                     'options' => ['class' => 'form-inline'],
                                     'action' => Url::to(['site/create-link']),
-                                    'enableAjaxValidation' => true,
+                                    'enableAjaxValidation' => false,
                                 ]); ?>
 
                                 <?= $form->field($model, 'url')->textInput(['placeholder' => 'Enter URL link'])->label(false) ?>
@@ -166,15 +166,15 @@ $this->title = 'QuickLinker';
                 </div>
                 <div class="col-lg-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
                     <div class="section-heading">
-                        <h2>Grow your website with our <em>SEO</em> service &amp; <span>Project</span> Ideas</h2>
-                        <p>Space Dynamic HTML5 template is free to use for your website projects. However, you are not
-                            permitted to redistribute the template ZIP file on any CSS template collection websites.
-                            Please contact us for more information. Thank you for your kind cooperation.</p>
+                        <h2>Grow your reach with our <em>URL Shortener</em> &amp; <span>QR Code Generator</span></h2>
+                        <p>Our tools help you simplify sharing and boost visibility with short links and custom QR codes.
+                            Feel free to use and customize this template for your projects, but redistribution of the ZIP
+                            file on third-party websites is not allowed. Contact us for more details.</p>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="first-bar progress-skill-bar">
-                                <h4>Website Analysis</h4>
+                                <h4>Short Links Created</h4>
                                 <span>84%</span>
                                 <div class="filled-bar"></div>
                                 <div class="full-bar"></div>
@@ -182,7 +182,7 @@ $this->title = 'QuickLinker';
                         </div>
                         <div class="col-lg-12">
                             <div class="second-bar progress-skill-bar">
-                                <h4>SEO Reports</h4>
+                                <h4>QR Codes Generated</h4>
                                 <span>88%</span>
                                 <div class="filled-bar"></div>
                                 <div class="full-bar"></div>
@@ -190,7 +190,7 @@ $this->title = 'QuickLinker';
                         </div>
                         <div class="col-lg-12">
                             <div class="third-bar progress-skill-bar">
-                                <h4>Page Optimizations</h4>
+                                <h4>User Satisfaction</h4>
                                 <span>94%</span>
                                 <div class="filled-bar"></div>
                                 <div class="full-bar"></div>
@@ -198,6 +198,7 @@ $this->title = 'QuickLinker';
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -209,15 +210,18 @@ $this->title = 'QuickLinker';
             <div class="row">
                 <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
                     <div class="section-heading">
-                        <h2>Feel Free To Send Us a Message About Your Website Needs</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doer ket eismod tempor
-                            incididunt ut labore et dolores</p>
+                        <h2>Generate Short Links & QR Codes Right from Telegram</h2>
+                        <p>Use our Telegram bot to quickly create short links and QR codes — anytime, anywhere. It's fast, easy, and free to use. No need to open a browser!</p>
                         <div class="phone-info">
-                            <h4>For any enquiry, Call Us: <span><i class="fa fa-phone"></i> <a href="#">010-020-0340</a></span>
+                            <h4>Linker Telegram Bot:
+                                <span><i class="fa fa-android"></i>
+                    <a href="https://t.me/quick_linker_bot" target="_blank">@quick_linker_bot</a>
+                </span>
                             </h4>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
                     <form id="contact" action="" method="post">
                         <div class="row">
@@ -263,9 +267,6 @@ $this->title = 'QuickLinker';
 <?php
 $script = <<< JS
     
-    $('#submit-btn').on('click',function() {
-         $('.loader').removeClass('hide');
-    });
 
     $(document).on('click', '.copy-btn', function () {
       const link = $(this).data('link');
@@ -290,9 +291,9 @@ $script = <<< JS
             success: function(response) {
                 $('.loader').addClass('hide');
                 if (response.status == 'success') {
-                    $('#result').html('<div class="link-result-container"><div class="link-info"><h3>Short Link:</h3><a href="' + response.shortUrl +'" target="_blank" id="shortLink">' + response.shortUrl+'</a>'
+                    $('#result').html('<div class="link-result-container"><div class="link-info"><h3>Your short Link:</h3><a href="' + response.shortUrl +'" target="_blank" id="shortLink">' + response.shortUrl+'</a>'
                     + '<button class="copy-btn" data-link="'+ response.shortUrl +'"><i class="fa fa-copy"></i></button>'
-    + '</div><div class="qr-code"><h3>QR-код:</h3><img src="'+ response.qrCode + '" alt="QR code"></div></div>');
+    + '</div><div class="qr-code"><h3>QR-code:</h3><img src="'+ response.qrCode + '" alt="QR code"><a href="'+response.qrCode+'" download=1>Download PNG</a></div></div>');
                 } else {
                     $('#result').html('<div class="alert alert-danger">Ошибка: ' + response.message + '</div>');
                 }

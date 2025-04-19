@@ -67,11 +67,27 @@ $config = [
 
             ],
         ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager', // используем БД для хранения ролей
+        ],
 
+
+    ],
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'site/*',
+            'redirect/*',
+            'api/*',
+//            'admin/*', // <-- Добавляем доступ к админке
+        ],
     ],
     'modules' => [
         'api' => [
             'class' => 'app\modules\api\v1\Module',
+        ],
+        'admin' => [
+            'class' => 'mdm\admin\Module',
         ],
     ],
     'params' => $params,

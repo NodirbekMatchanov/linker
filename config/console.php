@@ -26,6 +26,16 @@ $config = [
             ],
         ],
         'db' => $db,
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager', // используем БД для хранения ролей
+        ],
+        'as access' => [
+            'class' => 'mdm\admin\components\AccessControl',
+            'allowActions' => [
+                'site/*',
+                // добавить здесь экшены, доступные без авторизации
+            ],
+        ],
     ],
     'params' => $params,
     /*

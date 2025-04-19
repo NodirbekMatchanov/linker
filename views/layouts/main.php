@@ -75,8 +75,8 @@ $this->registerMetaTag(['property' => 'og:url', 'content' => Url::to('', true)])
                         ['label' => 'Faq', 'url' => '#services'],
                         ['label' => 'Message Us', 'url' => '#contact'],
                         [
-                            'label' => 'Contact Now',
-                            'url' => '#contact',
+                            'label' => 'Sign in',
+                            'url' => '/',
                             'options' => ['class' => 'main-red-button'],
                         ],
                     ],
