@@ -43,8 +43,8 @@ services:
     - "8081:80"  # Убедись, что порт 8081 свободен на твоем компьютере
     environment:
       PMA_HOST: 95.140.153.183      # Имя сервиса MySQL, к которому нужно подключиться
-      PMA_USER: dockeruser
-      PMA_PASSWORD: gku@7N+JvTMb#,
+#      PMA_USER: dockeruser
+#      PMA_PASSWORD: gku@7N+JvTMb#,
       PMA_PORT: 3306
 #    depends_on:
 #    - db
