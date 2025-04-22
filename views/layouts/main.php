@@ -19,7 +19,7 @@ $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, 
 $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii::getAlias('@web/favicon.ico')]);
 $this->title = Yii::t('meta', 'Быстрое сокращение ссылок и генерация QR-кодов | LinkShort');
 
-$this->registerMetaTag(['name' => 'description', 'content' => Yii::t('meta', 'Сократите длинные ссылки и создайте QR-коды за секунды. Бесплатно, быстро и удобно.')]);
+$this->registerMetaTag(['name' => 'description', 'content' => Yii::t('meta', 'Сократите длинные ссылки и создайте QR-коды за секунды. Бесплатно, быстро и удобно. Так же вы можете использовать наш API для использования в ваших разработках')]);
 $this->registerMetaTag(['name' => 'keywords', 'content' => Yii::t('meta', 'сокращение ссылок, qr код, генерация qr, короткие ссылки, short link, url shortener, qr generator, бесплатный qr, сделать ссылку короче')]);
 $this->registerMetaTag(['name' => 'author', 'content' => 'LinkShort']);
 $this->registerMetaTag(['name' => 'robots', 'content' => 'index, follow']);
