@@ -46,7 +46,7 @@ services:
       PMA_USER: dockeruser
       PMA_PASSWORD: gku@7N+JvTMb#,
       PMA_PORT: 3306
-    depends_on:
-    - db
+#    depends_on:
+#    - db
 volumes:
   db_data:
