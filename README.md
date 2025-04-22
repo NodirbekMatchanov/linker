@@ -74,9 +74,19 @@ return [
     'charset' => 'utf8',
 ];
 ```
+
 ## Migration
 
 
 ```php
+docker-compose exec php bash
+
+php yii migrate --migrationPath=@yii/rbac/migrations
+php yii migrate --migrationPath=@mdm/admin/migrations
+
+```
+
+```php
 php yii migrate
 ```
+
